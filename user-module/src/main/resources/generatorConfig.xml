@@ -31,7 +31,7 @@
         </javaTypeResolver>
 
         <!--自动生成的实体的存放包路径 -->
-        <javaModelGenerator targetPackage="com.realstate.usermodule.entity"
+        <javaModelGenerator targetPackage="com.estate.develop.usermodule.entity"
                             targetProject="src/main/java"/>
 
         <!--自动生成的*Mapper.xml文件存放路径 -->
@@ -40,9 +40,51 @@
 
         <!--自动生成的*Mapper.java存放路径 -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.realstate.usermodule.dao"
+                             targetPackage="com.estate.develop.usermodule.dao"
                              targetProject="src/main/java"/>
 
+
+        <table tableName="agency" domainObjectName="Agency"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="false"/>
+        </table>
+
+        <table tableName="comment" domainObjectName="Comment"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="false"/>
+        </table>
+
+        <table tableName="community" domainObjectName="Community"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="false"/>
+        </table>
+
+        <table tableName="house_msg" domainObjectName="HouseMsg"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="false"/>
+        </table>
+
+        <table tableName="house" domainObjectName="House"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="false"/>
+        </table>
+
+        <table tableName="house_user" domainObjectName="HouseUser"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="false"/>
+        </table>
 
         <table tableName="user" domainObjectName="User"
                enableCountByExample="false" enableUpdateByExample="false"

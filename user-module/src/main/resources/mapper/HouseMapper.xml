@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.estate.develop.usermodule.dao.HouseMapper">
+  <resultMap id="BaseResultMap" type="com.estate.develop.usermodule.entity.House">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="type" jdbcType="BIT" property="type" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="area" jdbcType="INTEGER" property="area" />
+    <result column="beds" jdbcType="INTEGER" property="beds" />
+    <result column="baths" jdbcType="INTEGER" property="baths" />
+    <result column="rating" jdbcType="DOUBLE" property="rating" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="properties" jdbcType="VARCHAR" property="properties" />
+    <result column="floor_plan" jdbcType="VARCHAR" property="floorPlan" />
+    <result column="tags" jdbcType="VARCHAR" property="tags" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="city_code" jdbcType="VARCHAR" property="cityCode" />
+    <result column="city_name" jdbcType="VARCHAR" property="cityName" />
+    <result column="community_id" jdbcType="BIGINT" property="communityId" />
+    <result column="community_name" jdbcType="VARCHAR" property="communityName" />
+    <result column="state" jdbcType="BIT" property="state" />
+    <result column="create_name" jdbcType="VARCHAR" property="createName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_name" jdbcType="VARCHAR" property="updateName" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, `name`, `type`, price, image, area, beds, baths, rating, remarks, properties, 
+    floor_plan, tags, address, city_code, city_name, community_id, community_name, `state`, 
+    create_name, create_time, update_name, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from house
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from house
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.estate.develop.usermodule.entity.House">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into house (id, `name`, `type`, price, 
+      image, area, beds, 
+      baths, rating, remarks, 
+      properties, floor_plan, tags, 
+      address, city_code, city_name, 
+      community_id, community_name, `state`, 
+      create_name, create_time, update_name, 
+      update_time)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=BIT}, #{price,jdbcType=DECIMAL}, 
+      #{image,jdbcType=VARCHAR}, #{area,jdbcType=INTEGER}, #{beds,jdbcType=INTEGER}, 
+      #{baths,jdbcType=INTEGER}, #{rating,jdbcType=DOUBLE}, #{remarks,jdbcType=VARCHAR}, 
+      #{properties,jdbcType=VARCHAR}, #{floorPlan,jdbcType=VARCHAR}, #{tags,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, #{cityName,jdbcType=VARCHAR}, 
+      #{communityId,jdbcType=BIGINT}, #{communityName,jdbcType=VARCHAR}, #{state,jdbcType=BIT}, 
+      #{createName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateName,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.estate.develop.usermodule.entity.House">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into house
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      id,
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="beds != null">
+        beds,
+      </if>
+      <if test="baths != null">
+        baths,
+      </if>
+      <if test="rating != null">
+        rating,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="properties != null">
+        properties,
+      </if>
+      <if test="floorPlan != null">
+        floor_plan,
+      </if>
+      <if test="tags != null">
+        tags,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="cityCode != null">
+        city_code,
+      </if>
+      <if test="cityName != null">
+        city_name,
+      </if>
+      <if test="communityId != null">
+        community_id,
+      </if>
+      <if test="communityName != null">
+        community_name,
+      </if>
+      <if test="state != null">
+        `state`,
+      </if>
+      <if test="createName != null">
+        create_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateName != null">
+        update_name,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=BIGINT},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=BIT},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=INTEGER},
+      </if>
+      <if test="beds != null">
+        #{beds,jdbcType=INTEGER},
+      </if>
+      <if test="baths != null">
+        #{baths,jdbcType=INTEGER},
+      </if>
+      <if test="rating != null">
+        #{rating,jdbcType=DOUBLE},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="properties != null">
+        #{properties,jdbcType=VARCHAR},
+      </if>
+      <if test="floorPlan != null">
+        #{floorPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null">
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null">
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="communityId != null">
+        #{communityId,jdbcType=BIGINT},
+      </if>
+      <if test="communityName != null">
+        #{communityName,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=BIT},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.estate.develop.usermodule.entity.House">
+    update house
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=BIT},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=INTEGER},
+      </if>
+      <if test="beds != null">
+        beds = #{beds,jdbcType=INTEGER},
+      </if>
+      <if test="baths != null">
+        baths = #{baths,jdbcType=INTEGER},
+      </if>
+      <if test="rating != null">
+        rating = #{rating,jdbcType=DOUBLE},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="properties != null">
+        properties = #{properties,jdbcType=VARCHAR},
+      </if>
+      <if test="floorPlan != null">
+        floor_plan = #{floorPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        tags = #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null">
+        city_code = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null">
+        city_name = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="communityId != null">
+        community_id = #{communityId,jdbcType=BIGINT},
+      </if>
+      <if test="communityName != null">
+        community_name = #{communityName,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        `state` = #{state,jdbcType=BIT},
+      </if>
+      <if test="createName != null">
+        create_name = #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        update_name = #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.estate.develop.usermodule.entity.House">
+    update house
+    set `name` = #{name,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=BIT},
+      price = #{price,jdbcType=DECIMAL},
+      image = #{image,jdbcType=VARCHAR},
+      area = #{area,jdbcType=INTEGER},
+      beds = #{beds,jdbcType=INTEGER},
+      baths = #{baths,jdbcType=INTEGER},
+      rating = #{rating,jdbcType=DOUBLE},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      properties = #{properties,jdbcType=VARCHAR},
+      floor_plan = #{floorPlan,jdbcType=VARCHAR},
+      tags = #{tags,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      city_code = #{cityCode,jdbcType=VARCHAR},
+      city_name = #{cityName,jdbcType=VARCHAR},
+      community_id = #{communityId,jdbcType=BIGINT},
+      community_name = #{communityName,jdbcType=VARCHAR},
+      `state` = #{state,jdbcType=BIT},
+      create_name = #{createName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_name = #{updateName,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
