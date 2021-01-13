@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="mysqlTable" defaultModelType="flat" targetRuntime="MyBatis3">
+        <!--<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>-->
+        <!-- 生成的Java文件的编码 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 格式化java代码 -->
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+        <!-- 格式化XML代码 -->
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+        <property name="autoDelimitKeywords" value="true" />
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/house?useSSL=false"
+                        userId="root"
+                        password="root"/>
+
+        <!--指定生成的类型为java类型，避免数据库中number等类型字段 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--自动生成的实体的存放包路径 -->
+        <javaModelGenerator targetPackage="com.realstate.usermodule.entity"
+                            targetProject="src/main/java"/>
+
+        <!--自动生成的*Mapper.xml文件存放路径 -->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="src/main/resources"/>
+
+        <!--自动生成的*Mapper.java存放路径 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.realstate.usermodule.dao"
+                             targetProject="src/main/java"/>
+
+
+        <table tableName="user" domainObjectName="User"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="false"/>
+        </table>
+    </context>
+</generatorConfiguration>
