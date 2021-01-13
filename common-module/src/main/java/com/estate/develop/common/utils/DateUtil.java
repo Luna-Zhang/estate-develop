@@ -1,4 +1,4 @@
-package com.estate.develop.usermodule.utils;
+package com.estate.develop.common.utils;
 
 import com.alibaba.druid.util.StringUtils;
 
