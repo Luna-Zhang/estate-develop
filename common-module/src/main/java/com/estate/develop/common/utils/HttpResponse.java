@@ -8,39 +8,39 @@ import com.estate.develop.common.enums.ResponseMsgEnum;
  * @Date：2021/1/13:21:34
  */
 public class HttpResponse<T extends Object> {
-    private Integer code;
+    private String status;
     private String msg;
     private T data;
 
-    public static HttpResponse responseMsg(Integer code, String msg) {
+    public static HttpResponse responseMsg(String code, String msg) {
         HttpResponse r = new HttpResponse();
-        r.setCode(code);
+        r.setStatus(code);
         r.setMsg(msg);
         return r;
     }
 
     public static HttpResponse responseMsg(ResponseMsgEnum responseMsgEnum) {
         HttpResponse r = new HttpResponse();
-        r.setCode(responseMsgEnum.getCode());
+        r.setStatus(responseMsgEnum.getCode());
         r.setMsg(responseMsgEnum.getMsg());
         return r;
     }
 
     public static HttpResponse responseMsg(Object data) {
         HttpResponse r = new HttpResponse();
-        r.setCode(ResponseMsgEnum.SUCCESS.getCode());
+        r.setStatus(ResponseMsgEnum.SUCCESS.getCode());
         r.setMsg(ResponseMsgEnum.SUCCESS.getMsg());
         r.setData(data);
 
         return r;
     }
 
-    public Integer getCode() {
-        return code;
+    public String getStatus() {
+        return status;
     }
 
-    public void setCode(Integer code) {
-        this.code = code;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getMsg() {
