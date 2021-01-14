@@ -1,4 +1,4 @@
-package com.estate.develop.common.utils;
+package com.estate.develop.usermodule.exception;
 
 import com.estate.develop.common.enums.ResponseMsgEnum;
 

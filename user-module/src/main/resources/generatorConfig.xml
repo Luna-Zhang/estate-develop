@@ -21,7 +21,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/house?useSSL=false"
+                        connectionURL="jdbc:mysql://localhost:3306/house?tinyInt1isBit=false"
                         userId="root"
                         password="root"/>
 
@@ -56,6 +56,7 @@
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="MySql" identity="false"/>
+            <columnOverride column="type" javaType="java.lang.Integer"/>
         </table>
 
         <table tableName="community" domainObjectName="Community"
@@ -77,6 +78,8 @@
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="MySql" identity="false"/>
+            <columnOverride column="type" javaType="java.lang.Integer"/>
+            <columnOverride column="state" javaType="java.lang.Integer"/>
         </table>
 
         <table tableName="house_user" domainObjectName="HouseUser"
@@ -84,13 +87,15 @@
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="MySql" identity="false"/>
+            <columnOverride column="type" javaType="java.lang.Integer"/>
         </table>
-
         <table tableName="user" domainObjectName="User"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="MySql" identity="false"/>
+            <columnOverride column="enable" javaType="java.lang.Integer" />
+            <columnOverride column="type" javaType="java.lang.Integer" />
         </table>
     </context>
 </generatorConfiguration>

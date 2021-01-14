@@ -9,7 +9,7 @@ public class HouseUser {
 
     private Long userId;
 
-    private Boolean type;
+    private Integer type;
 
     private String createName;
 
@@ -39,11 +39,11 @@ public class HouseUser {
         this.userId = userId;
     }
 
-    public Boolean getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(Boolean type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 

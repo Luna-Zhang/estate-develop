@@ -1,9 +1,7 @@
 package com.estate.develop.usermodule.dao;
 
 import com.estate.develop.usermodule.entity.Agency;
-import org.springframework.stereotype.Repository;
 
-@Repository
 public interface AgencyMapper {
     int deleteByPrimaryKey(Long id);
 

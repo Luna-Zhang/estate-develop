@@ -9,7 +9,7 @@
     <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="comment_time" jdbcType="TIMESTAMP" property="commentTime" />
     <result column="blog_id" jdbcType="BIGINT" property="blogId" />
-    <result column="type" jdbcType="BIT" property="type" />
+    <result column="type" jdbcType="TINYINT" property="type" />
     <result column="create_name" jdbcType="VARCHAR" property="createName" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
@@ -37,7 +37,7 @@
       create_time)
     values (#{id,jdbcType=BIGINT}, #{houseId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
       #{userName,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{commentTime,jdbcType=TIMESTAMP}, 
-      #{blogId,jdbcType=BIGINT}, #{type,jdbcType=BIT}, #{createName,jdbcType=VARCHAR}, 
+      #{blogId,jdbcType=BIGINT}, #{type,jdbcType=TINYINT}, #{createName,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.estate.develop.usermodule.entity.Comment">
@@ -96,7 +96,7 @@
         #{blogId,jdbcType=BIGINT},
       </if>
       <if test="type != null">
-        #{type,jdbcType=BIT},
+        #{type,jdbcType=TINYINT},
       </if>
       <if test="createName != null">
         #{createName,jdbcType=VARCHAR},
@@ -128,7 +128,7 @@
         blog_id = #{blogId,jdbcType=BIGINT},
       </if>
       <if test="type != null">
-        `type` = #{type,jdbcType=BIT},
+        `type` = #{type,jdbcType=TINYINT},
       </if>
       <if test="createName != null">
         create_name = #{createName,jdbcType=VARCHAR},
@@ -147,7 +147,7 @@
       content = #{content,jdbcType=VARCHAR},
       comment_time = #{commentTime,jdbcType=TIMESTAMP},
       blog_id = #{blogId,jdbcType=BIGINT},
-      `type` = #{type,jdbcType=BIT},
+      `type` = #{type,jdbcType=TINYINT},
       create_name = #{createName,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}

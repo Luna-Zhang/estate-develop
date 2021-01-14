@@ -17,7 +17,7 @@ public class Comment {
 
     private Long blogId;
 
-    private Boolean type;
+    private Integer type;
 
     private String createName;
 
@@ -79,11 +79,11 @@ public class Comment {
         this.blogId = blogId;
     }
 
-    public Boolean getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(Boolean type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 

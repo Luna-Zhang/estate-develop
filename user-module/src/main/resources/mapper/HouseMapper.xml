@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.estate.develop.usermodule.entity.House">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="type" jdbcType="BIT" property="type" />
+    <result column="type" jdbcType="TINYINT" property="type" />
     <result column="price" jdbcType="DECIMAL" property="price" />
     <result column="image" jdbcType="VARCHAR" property="image" />
     <result column="area" jdbcType="INTEGER" property="area" />
@@ -20,7 +20,7 @@
     <result column="city_name" jdbcType="VARCHAR" property="cityName" />
     <result column="community_id" jdbcType="BIGINT" property="communityId" />
     <result column="community_name" jdbcType="VARCHAR" property="communityName" />
-    <result column="state" jdbcType="BIT" property="state" />
+    <result column="state" jdbcType="TINYINT" property="state" />
     <result column="create_name" jdbcType="VARCHAR" property="createName" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_name" jdbcType="VARCHAR" property="updateName" />
@@ -45,22 +45,22 @@
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into house (id, `name`, `type`, price, 
-      image, area, beds, 
-      baths, rating, remarks, 
-      properties, floor_plan, tags, 
-      address, city_code, city_name, 
-      community_id, community_name, `state`, 
-      create_name, create_time, update_name, 
-      update_time)
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=BIT}, #{price,jdbcType=DECIMAL}, 
-      #{image,jdbcType=VARCHAR}, #{area,jdbcType=INTEGER}, #{beds,jdbcType=INTEGER}, 
-      #{baths,jdbcType=INTEGER}, #{rating,jdbcType=DOUBLE}, #{remarks,jdbcType=VARCHAR}, 
-      #{properties,jdbcType=VARCHAR}, #{floorPlan,jdbcType=VARCHAR}, #{tags,jdbcType=VARCHAR}, 
-      #{address,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, #{cityName,jdbcType=VARCHAR}, 
-      #{communityId,jdbcType=BIGINT}, #{communityName,jdbcType=VARCHAR}, #{state,jdbcType=BIT}, 
-      #{createName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateName,jdbcType=VARCHAR}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+    insert into house (id, `name`, `type`, 
+      price, image, area, 
+      beds, baths, rating, 
+      remarks, properties, floor_plan, 
+      tags, address, city_code, 
+      city_name, community_id, community_name, 
+      `state`, create_name, create_time, 
+      update_name, update_time)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, 
+      #{price,jdbcType=DECIMAL}, #{image,jdbcType=VARCHAR}, #{area,jdbcType=INTEGER}, 
+      #{beds,jdbcType=INTEGER}, #{baths,jdbcType=INTEGER}, #{rating,jdbcType=DOUBLE}, 
+      #{remarks,jdbcType=VARCHAR}, #{properties,jdbcType=VARCHAR}, #{floorPlan,jdbcType=VARCHAR}, 
+      #{tags,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, 
+      #{cityName,jdbcType=VARCHAR}, #{communityId,jdbcType=BIGINT}, #{communityName,jdbcType=VARCHAR}, 
+      #{state,jdbcType=TINYINT}, #{createName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateName,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.estate.develop.usermodule.entity.House">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
@@ -142,7 +142,7 @@
         #{name,jdbcType=VARCHAR},
       </if>
       <if test="type != null">
-        #{type,jdbcType=BIT},
+        #{type,jdbcType=TINYINT},
       </if>
       <if test="price != null">
         #{price,jdbcType=DECIMAL},
@@ -190,7 +190,7 @@
         #{communityName,jdbcType=VARCHAR},
       </if>
       <if test="state != null">
-        #{state,jdbcType=BIT},
+        #{state,jdbcType=TINYINT},
       </if>
       <if test="createName != null">
         #{createName,jdbcType=VARCHAR},
@@ -213,7 +213,7 @@
         `name` = #{name,jdbcType=VARCHAR},
       </if>
       <if test="type != null">
-        `type` = #{type,jdbcType=BIT},
+        `type` = #{type,jdbcType=TINYINT},
       </if>
       <if test="price != null">
         price = #{price,jdbcType=DECIMAL},
@@ -261,7 +261,7 @@
         community_name = #{communityName,jdbcType=VARCHAR},
       </if>
       <if test="state != null">
-        `state` = #{state,jdbcType=BIT},
+        `state` = #{state,jdbcType=TINYINT},
       </if>
       <if test="createName != null">
         create_name = #{createName,jdbcType=VARCHAR},
@@ -281,7 +281,7 @@
   <update id="updateByPrimaryKey" parameterType="com.estate.develop.usermodule.entity.House">
     update house
     set `name` = #{name,jdbcType=VARCHAR},
-      `type` = #{type,jdbcType=BIT},
+      `type` = #{type,jdbcType=TINYINT},
       price = #{price,jdbcType=DECIMAL},
       image = #{image,jdbcType=VARCHAR},
       area = #{area,jdbcType=INTEGER},
@@ -297,7 +297,7 @@
       city_name = #{cityName,jdbcType=VARCHAR},
       community_id = #{communityId,jdbcType=BIGINT},
       community_name = #{communityName,jdbcType=VARCHAR},
-      `state` = #{state,jdbcType=BIT},
+      `state` = #{state,jdbcType=TINYINT},
       create_name = #{createName,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_name = #{updateName,jdbcType=VARCHAR},

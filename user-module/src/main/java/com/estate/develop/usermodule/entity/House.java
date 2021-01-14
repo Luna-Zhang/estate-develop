@@ -7,7 +7,7 @@ public class House {
 
     private String name;
 
-    private Boolean type;
+    private Integer type;
 
     private Long price;
 
@@ -39,7 +39,7 @@ public class House {
 
     private String communityName;
 
-    private Boolean state;
+    private Integer state;
 
     private String createName;
 
@@ -65,11 +65,11 @@ public class House {
         this.name = name;
     }
 
-    public Boolean getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(Boolean type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
@@ -193,11 +193,11 @@ public class House {
         this.communityName = communityName;
     }
 
-    public Boolean getState() {
+    public Integer getState() {
         return state;
     }
 
-    public void setState(Boolean state) {
+    public void setState(Integer state) {
         this.state = state;
     }
 

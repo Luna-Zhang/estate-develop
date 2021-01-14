@@ -5,7 +5,7 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="house_id" jdbcType="BIGINT" property="houseId" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
-    <result column="type" jdbcType="BIT" property="type" />
+    <result column="type" jdbcType="TINYINT" property="type" />
     <result column="create_name" jdbcType="VARCHAR" property="createName" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
@@ -30,7 +30,7 @@
       `type`, create_name, create_time
       )
     values (#{id,jdbcType=BIGINT}, #{houseId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
-      #{type,jdbcType=BIT}, #{createName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      #{type,jdbcType=TINYINT}, #{createName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.estate.develop.usermodule.entity.HouseUser">
@@ -65,7 +65,7 @@
         #{userId,jdbcType=BIGINT},
       </if>
       <if test="type != null">
-        #{type,jdbcType=BIT},
+        #{type,jdbcType=TINYINT},
       </if>
       <if test="createName != null">
         #{createName,jdbcType=VARCHAR},
@@ -85,7 +85,7 @@
         user_id = #{userId,jdbcType=BIGINT},
       </if>
       <if test="type != null">
-        `type` = #{type,jdbcType=BIT},
+        `type` = #{type,jdbcType=TINYINT},
       </if>
       <if test="createName != null">
         create_name = #{createName,jdbcType=VARCHAR},
@@ -100,7 +100,7 @@
     update house_user
     set house_id = #{houseId,jdbcType=BIGINT},
       user_id = #{userId,jdbcType=BIGINT},
-      `type` = #{type,jdbcType=BIT},
+      `type` = #{type,jdbcType=TINYINT},
       create_name = #{createName,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}

@@ -1,7 +1,6 @@
 package com.estate.develop.usermodule.exception;
 
 import com.estate.develop.common.enums.ResponseMsgEnum;
-import com.estate.develop.common.utils.HttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

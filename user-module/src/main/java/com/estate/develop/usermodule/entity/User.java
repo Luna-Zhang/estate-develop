@@ -17,11 +17,11 @@ public class User {
 
     private String avatar;
 
-    private Boolean type;
+    private Integer type;
 
     private Long agencyId;
 
-    private Boolean enable;
+    private Integer enable;
 
     private String createName;
 
@@ -87,11 +87,11 @@ public class User {
         this.avatar = avatar;
     }
 
-    public Boolean getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(Boolean type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
@@ -103,11 +103,11 @@ public class User {
         this.agencyId = agencyId;
     }
 
-    public Boolean getEnable() {
+    public Integer getEnable() {
         return enable;
     }
 
-    public void setEnable(Boolean enable) {
+    public void setEnable(Integer enable) {
         this.enable = enable;
     }
 
